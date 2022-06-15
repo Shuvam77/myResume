@@ -1,0 +1,52 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title  %}Shuvam Singh: Blog{% endblock  %}
+{% block description %}{% endblock  %}
+{% block keywords %}{% endblock  %}
+{% block extend_footer %}{% endblock %}
+
+{% block content %}
+    <!-- ================================
+    Start Content
+    ================================= -->
+    <section>
+      <div class="innerPageBannerCol">
+        <div class="container">
+          <div class="row g-4 g-md-3  align-items-center">
+            <div class="col-md-6">
+              <div class="bannerContent">
+                <h1 class="xlTitle pb-md-3">See my recent blogs below</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="lightBg">
+        <div class="container">
+          <div class="portfolioContentMain">
+            <div class="row g-3 g-md-4 g-lg-5 portfolioRow">
+
+              {% for article in blog %}
+              
+              <div class="col-md-6 pColMain">
+                <div class="pCol">
+                  <h4 class="mdTitle cs1Title"><a href="{% url 'main:blog_detail' article.slug %}">{{article.name|title}}</a></h4>
+                  <img src="{{article.image.url}}" alt="..." class="pImg">
+                </div>
+              </div>
+              
+              {% endfor %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ================================
+    End Content
+    ================================= -->
+{% endblock %}

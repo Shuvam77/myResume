@@ -1,0 +1,41 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title  %}Shuvam Singh: Portfolio Detail{% endblock  %}
+{% block description %}{% endblock  %}
+{% block keywords %}{% endblock  %}
+{% block extend_footer %}{% endblock %}
+
+{% block content %}
+    <!-- ================================
+    Start Content
+    ================================= -->
+    <section>
+      <div class="innerPageBannerCol">
+        <div class="container">
+          <div class="row g-4 g-md-3  align-items-center">
+            <div class="col-md-6">
+              <div class="bannerContent">
+                <h1 class="xlTitle pb-md-3">{{portfolio_detail.title|title}}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sectionSpaceSm">
+        <div class="container">
+          <p>
+            {{portfolio_detail.body|safe}}
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- ================================
+    End Content
+    ================================= -->
+
+{% endblock %}

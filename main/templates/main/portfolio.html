@@ -1,0 +1,54 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title  %}Shuvam Singh: Portfolio{% endblock  %}
+{% block description %}{% endblock  %}
+{% block keywords %}{% endblock  %}
+{% block extend_footer %}{% endblock %}
+
+{% block content %}
+    <!-- ================================
+    Start Content
+    ================================= -->
+    <section>
+      <div class="innerPageBannerCol">
+        <div class="container">
+          <div class="row g-4 g-md-3  align-items-center">
+            <div class="col-md-6">
+              <div class="bannerContent">
+                <h1 class="xlTitle pb-md-3">See my recent projects below</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="lightBg">
+        <div class="container">
+          <div class="portfolioContentMain">
+            <div class="row g-3 g-md-4 g-lg-5 portfolioRow">
+
+              {% for port in portfolio %}
+              
+              <div class="col-md-6 pColMain">
+                <div class="pCol">
+                  <h4 class="lgTitle"><a href="{% url 'main:portfolio_detail' port.slug %}">{{port.name}}</a></h4>
+                  <img src="{{port.image.url}}" alt="..." class="pImg">
+                </div>
+              </div>
+              
+              {% endfor %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ================================
+    End Content
+    ================================= -->
+
+{% endblock %}
